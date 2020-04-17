@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 14,
     paddingHorizontal: 10,
-    backgroundColor: 'red',
-    opacity: .7
+    backgroundColor: 'coral',
+    opacity: .8
   },
   buttonText: {
     color: 'black',

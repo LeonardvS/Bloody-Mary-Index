@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Dimensions, ImageBackground } from 'react-nativ
 
 import FlatButton from '../shared/button';
 
-export default function Home ( { navigation }) {
+export default function Home ( { navigation } ) {
 
   const pressHandlerMaps = () => {
     navigation.navigate('Maps');
@@ -18,7 +18,9 @@ export default function Home ( { navigation }) {
       <ImageBackground source={require('../assets/map.png')} style={styles.top}>
         <FlatButton style={styles.button} text='drink' onPress={pressHandlerMaps} />
       </ImageBackground>
+
       <View style={styles.line}></View>
+
       <ImageBackground source={require('../assets/rate.png')} style={styles.bottom}>
         <FlatButton style={styles.button} text='rate' onPress={pressHandlerForm} />
       </ImageBackground>
