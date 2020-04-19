@@ -5,9 +5,9 @@ export default function Rating ({ value, onChange }) {
 
   return (
     <View style={styles.container}>
-      <Picker selectedValue={value} onValueChange={(value) => onChange(value)} style={styles.picker}>
-        <Picker.Item label="Address" value="" />
-        <Picker.Item label='coords' value="Max-Weber-Platz"  />
+      <Picker selectedValue={value} onValueChange={(value) => onChange(value)}>
+        <Picker.Item label='ADDRESS' value='' />
+        <Picker.Item label='coords' value='Max-Weber-Platz'  />
       </Picker>
     </View>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, ImageBackground, Dimensions } from 'react-native';
+import { StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage} from 'react-native';
 import FlatButton from '../shared/button';
 
 import Rating from '../ratingOptions/rating';
@@ -9,7 +9,7 @@ import Price from '../ratingOptions/price';
 import Hangover from '../ratingOptions/hangover';
 import Location from '../ratingOptions/location';
 
-export default function Form () {
+export default function Form ({ navigation }) {
   const [rating, setRating] = useState('rating');
   const [venue, setVenue] = useState('venue');
   const [spice, setSpice] = useState('spice');
@@ -17,13 +17,13 @@ export default function Form () {
   const [hangover, setHangover] = useState('hangover');
   const [location, setLocation] = useState('location');
 
-  const allRatings = {
-    rating,
-    venue,
-    spice,
-    price,
-    hangover,
-    location
+  const bloodyMaryRating = { rating, venue, spice, price, hangover, location };
+
+  const handlePress = () => {
+    AsyncStorage.setItem('data', JSON.stringify(bloodyMaryRating))
+    .then(data => {
+      navigation.navigate('MyBloodyMarys', { data: bloodyMaryRating })
+    });
   }
 
   return (
@@ -35,7 +35,11 @@ export default function Form () {
       <Price value={price} onChange={setPrice} />
       <Hangover value={hangover} onChange={setHangover} />
       <Location value={location} onChange={setLocation} />
-      <FlatButton onPress={() => console.log('all ratings', allRatings)} text='submit' style={styles.button} />
+      <FlatButton
+        text='submit'
+        style={styles.button}
+        onPress={handlePress}
+      />
     </ImageBackground>
   )
 }

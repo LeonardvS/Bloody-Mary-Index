@@ -5,12 +5,8 @@ import HomeStack from './homeStack';
 import MyBloodyMaryStack from './myBloodyMaryStack';
 
 const RootDrawerNavigator = createDrawerNavigator({
-  Home: {
-    screen: HomeStack
-  },
-  MyBloodyMarys: {
-    screen: MyBloodyMaryStack
-  }
+  Home: { screen: HomeStack },
+  MyBloodyMarys: { screen: MyBloodyMaryStack }
 });
 
 export default createAppContainer(RootDrawerNavigator);
