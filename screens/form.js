@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage} from 'react-native';
+import { StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
 import FlatButton from '../shared/button';
 
 import Rating from '../ratingOptions/rating';
@@ -47,12 +47,13 @@ export default function Form ({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     padding: 24,
-    height: Dimensions.get('window').height/1.1
+    height: Dimensions.get('window').height/1.1,
+    backgroundColor: 'red'
   },
   text: {
+    flex: 1,
     fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 5
+    fontWeight: 'bold'
   },
   button: {
     marginTop: 10

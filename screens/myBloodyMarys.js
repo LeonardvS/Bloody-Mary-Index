@@ -1,7 +1,8 @@
 // TODO: use navigation.push() to get to individual BM pages, where we can see the all the ratings, not just icon + average. TouchableOpacity + onPress={navigation.push()}
+// TODO: infinite loop when logging ratings.
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage, Image } from 'react-native';
 
 export default function MyBloodyMarys () {
   const [ratings, setRatings] = useState({});
@@ -14,10 +15,10 @@ export default function MyBloodyMarys () {
       <Text>MyBloodyMarys Screen</Text>
       <Text>
         {(ratings.rating + ratings.price + ratings.hangover + ratings.venue + ratings.spice) >= 20
-          ? 'god-like'
+          ? <Image source={require('../assets/3stars.png')} />
             : (ratings.rating + ratings.price + ratings.hangover + ratings.venue + ratings.spice) >= 10
-            ? 'decent'
-            : 'sucks'
+            ? <Image source={require('../assets/2stars.png')} />
+            : <Image source={require('../assets/1star.png')} />
         }
       </Text>
     </View>

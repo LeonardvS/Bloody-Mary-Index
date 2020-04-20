@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 2
   },
-  bottom: {
-    height: Dimensions.get('window').height/2.3,
-    borderRadius: 8
-  },
   line: {
     borderBottomColor: 'slategrey',
     borderBottomWidth: 1,
     marginBottom: 5
+  },
+  bottom: {
+    height: Dimensions.get('window').height/2.3,
+    borderRadius: 8
   }
 })
 

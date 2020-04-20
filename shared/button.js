@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 10,
     backgroundColor: 'coral',
-    opacity: .8
+    opacity: .7
   },
   buttonText: {
     color: 'black',
