@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
 import FlatButton from '../shared/button';
+import { getBloodyMarys, postBloodyMary, deleteBloodyMary } from '../services/apiClient';
 
 import Rating from '../ratingOptions/rating';
 import Venue from '../ratingOptions/venue';
@@ -10,7 +11,7 @@ import Hangover from '../ratingOptions/hangover';
 import Location from '../ratingOptions/location';
 
 export default function Form ({ navigation }) {
-  const [rating, setRating] = useState('rating');
+  const [rating, setRating] = useState('rating'); // ?? can all of this go into one object?
   const [venue, setVenue] = useState('venue');
   const [spice, setSpice] = useState('spice');
   const [price, setPrice] = useState('price');
@@ -21,10 +22,13 @@ export default function Form ({ navigation }) {
 
   const handlePress = () => {
     AsyncStorage.setItem('data', JSON.stringify(bloodyMaryRating))
-    .then(data => {
-      navigation.navigate('MyBloodyMarys', { data: bloodyMaryRating })
-    });
+      .then(data => {
+        navigation.navigate('MyBloodyMarys', { data: bloodyMaryRating })
+      });
+    postBloodyMary(bloodyMaryRating);
   }
+
+
 
   return (
     <ImageBackground source={require('../assets/BM.png')} style={styles.container}>

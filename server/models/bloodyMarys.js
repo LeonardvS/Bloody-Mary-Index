@@ -13,7 +13,7 @@ const Schema = mongoose.Schema;
 //   }
 // });
 
-const BloodyMarySchema = new Schema({
+const BloodyMarySchema = new Schema({ // TODO: implement date: date: {type: Date, default: Date.now()}
   location: String,
   rating: Number,
   price: Number,

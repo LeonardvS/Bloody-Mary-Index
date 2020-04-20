@@ -1,6 +1,6 @@
 const BloodyMary = require('../models/bloodyMarys');
 
-async function getBloodyMary (req, res) {
+async function getBloodyMarys (req, res) {
   try {
     const bloodyMarys = await BloodyMary.find();
     res.status(200);
@@ -31,7 +31,7 @@ async function postBloodyMary (req, res) {
 
 async function deleteBloodyMary (req, res) {
   try {
-    await BloodyMary.findByIdAndRemove(req.params.id); // TODO: or is it: _id?
+    await BloodyMary.findByIdAndRemove(req.params.id);
     res.sendStatus(200);
   } catch (error) {
     console.log('error DELETING', error); // ??
@@ -40,7 +40,7 @@ async function deleteBloodyMary (req, res) {
 }
 
 module.exports = {
-  getBloodyMary,
+  getBloodyMarys,
   postBloodyMary,
   deleteBloodyMary
 };

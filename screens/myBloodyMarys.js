@@ -2,7 +2,7 @@
 // TODO: infinite loop when logging ratings.
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, AsyncStorage, Image } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage, Image, TouchableOpacity } from 'react-native';
 
 export default function MyBloodyMarys () {
   const [ratings, setRatings] = useState({});

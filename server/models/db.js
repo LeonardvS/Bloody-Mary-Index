@@ -7,6 +7,6 @@ mongoose.connect('mongodb://localhost:27017/bloodyMarys_db', {
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => console.log('*** database connected ***'));
+db.once('open', () => console.log('*** mongoose connected ***'));
 
 module.exports = mongoose;
