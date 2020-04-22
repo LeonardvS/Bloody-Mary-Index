@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
 import FlatButton from '../shared/button';
 import { postBloodyMary } from '../services/apiClient';
+import * as Location from 'expo-location';
 
 import Rating from '../ratingOptions/rating';
 import Venue from '../ratingOptions/venue';
 import Spice from '../ratingOptions/spiciness';
 import Price from '../ratingOptions/price';
 import Hangover from '../ratingOptions/hangover';
-import Location from '../ratingOptions/location';
 
 export default function Form ({ navigation }) {
   const [venue, setVenue] = useState('venue');
@@ -16,15 +16,33 @@ export default function Form ({ navigation }) {
   const [price, setPrice] = useState('price');
   const [rating, setRating] = useState('rating');
   const [hangover, setHangover] = useState('hangover');
-  const [location, setLocation] = useState('location');
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [long, setLong] = useState('');
+  const [lat, setLat] = useState('');
 
-  const bloodyMaryRating = { rating, venue, spice, price, hangover, location };
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLong(location.coords.longitude)
+      setLat(location.coords.latitude)
+    })();
+  });
+
+  const bloodyMaryRating = { rating, venue, spice, price, hangover, long, lat };
 
   const handlePress = () => {
+    // console.log(bloodyMaryRating, 'bloody')
     postBloodyMary(bloodyMaryRating)
       .then((item) => {
+        // console.log(item, 'item')
         AsyncStorage.setItem('data', JSON.stringify(item))
           .then(data => {
+            // console.log(data, 'data')
             navigation.navigate('MyBloodyMarys')
           })
       });
@@ -38,7 +56,7 @@ export default function Form ({ navigation }) {
       <Spice value={spice} onChange={setSpice} />
       <Price value={price} onChange={setPrice} />
       <Hangover value={hangover} onChange={setHangover} />
-      <Location value={location} onChange={setLocation} />
+      {/* <Location value={location} onChange={setLocation} /> */}
       <FlatButton
         text='submit'
         style={styles.button}

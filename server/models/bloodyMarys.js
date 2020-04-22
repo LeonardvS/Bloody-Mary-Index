@@ -2,9 +2,14 @@ const mongoose = require('./db');
 const Schema = mongoose.Schema;
 
 const BloodyMarySchema = new Schema({ // TODO: implement date: date: {type: Date, default: Date.now()}
-  latitude: Number,
-  longitude: Number,
-  location: String,
+  lat: {
+    type: Number,
+    default: 0
+  },
+  long: {
+    type: Number,
+    default: 0
+  },
   rating: Number,
   price: Number,
   venue: Number,
