@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, ImageBackground, Dimensions, AsyncStorage } from 'react-native';
 import FlatButton from '../shared/button';
-import { getBloodyMarys, postBloodyMary, deleteBloodyMary } from '../services/apiClient';
+import { postBloodyMary } from '../services/apiClient';
 
 import Rating from '../ratingOptions/rating';
 import Venue from '../ratingOptions/venue';
@@ -11,24 +11,24 @@ import Hangover from '../ratingOptions/hangover';
 import Location from '../ratingOptions/location';
 
 export default function Form ({ navigation }) {
-  const [rating, setRating] = useState('rating'); // ?? can all of this go into one object?
   const [venue, setVenue] = useState('venue');
   const [spice, setSpice] = useState('spice');
   const [price, setPrice] = useState('price');
+  const [rating, setRating] = useState('rating');
   const [hangover, setHangover] = useState('hangover');
   const [location, setLocation] = useState('location');
 
   const bloodyMaryRating = { rating, venue, spice, price, hangover, location };
 
   const handlePress = () => {
-    AsyncStorage.setItem('data', JSON.stringify(bloodyMaryRating))
-      .then(data => {
-        navigation.navigate('MyBloodyMarys', { data: bloodyMaryRating })
+    postBloodyMary(bloodyMaryRating)
+      .then((item) => {
+        AsyncStorage.setItem('data', JSON.stringify(item))
+          .then(data => {
+            navigation.navigate('MyBloodyMarys')
+          })
       });
-    postBloodyMary(bloodyMaryRating);
   }
-
-
 
   return (
     <ImageBackground source={require('../assets/BM.png')} style={styles.container}>
@@ -58,8 +58,5 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 20,
     fontWeight: 'bold'
-  },
-  button: {
-    marginTop: 10
   }
 });

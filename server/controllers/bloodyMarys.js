@@ -15,6 +15,8 @@ async function postBloodyMary (req, res) {
   try {
     const newBloodyMary = await BloodyMary.create({
       location: req.body.location,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
       rating: req.body.rating,
       price: req.body.price,
       venue: req.body.venue,
