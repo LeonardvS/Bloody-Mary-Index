@@ -5,7 +5,6 @@ function getBloodyMarys () {
 }
 
 function postBloodyMary (body) {
-  console.log(body, 'body')
   return fetchRequest('/bloodyMarys', {
     method: 'POST',
     headers: {

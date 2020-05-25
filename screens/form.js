@@ -9,16 +9,18 @@ import Venue from '../ratingOptions/venue';
 import Spice from '../ratingOptions/spiciness';
 import Price from '../ratingOptions/price';
 import Hangover from '../ratingOptions/hangover';
+import Address from '../ratingOptions/address';
 
 export default function Form ({ navigation }) {
-  const [venue, setVenue] = useState('venue');
-  const [spice, setSpice] = useState('spice');
-  const [price, setPrice] = useState('price');
-  const [rating, setRating] = useState('rating');
-  const [hangover, setHangover] = useState('hangover');
-  const [errorMsg, setErrorMsg] = useState(null);
+  const [venue, setVenue] = useState(1);
+  const [spice, setSpice] = useState(1);
+  const [price, setPrice] = useState(1);
+  const [rating, setRating] = useState(1);
+  const [hangover, setHangover] = useState(1);
+  const [address, setAddress] = useState('📍');
   const [long, setLong] = useState('');
   const [lat, setLat] = useState('');
+  const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -33,16 +35,13 @@ export default function Form ({ navigation }) {
     })();
   });
 
-  const bloodyMaryRating = { rating, venue, spice, price, hangover, long, lat };
+  const bloodyMaryRating = { rating, venue, spice, price, hangover, long, lat, address };
 
   const handlePress = () => {
-    // console.log(bloodyMaryRating, 'bloody')
     postBloodyMary(bloodyMaryRating)
       .then((item) => {
-        // console.log(item, 'item')
         AsyncStorage.setItem('data', JSON.stringify(item))
           .then(data => {
-            // console.log(data, 'data')
             navigation.navigate('MyBloodyMarys')
           })
       });
@@ -53,10 +52,10 @@ export default function Form ({ navigation }) {
       <Text style={styles.text}>Bloody Mary Meter</Text>
       <Rating value={rating} onChange={setRating} />
       <Venue value={venue} onChange={setVenue} />
-      <Spice value={spice} onChange={setSpice} />
       <Price value={price} onChange={setPrice} />
       <Hangover value={hangover} onChange={setHangover} />
-      {/* <Location value={location} onChange={setLocation} /> */}
+      <Spice value={spice} onChange={setSpice} />
+      <Address value={address} onChange={setAddress} />
       <FlatButton
         text='submit'
         style={styles.button}

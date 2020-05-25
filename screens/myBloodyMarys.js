@@ -1,5 +1,4 @@
 // TODO: use navigation.push() to get to individual BM pages, where we can see the all the ratings, not just icon + average. TouchableOpacity + onPress={navigation.push()}
-// TODO: infinite loop when logging ratings.
 
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
@@ -29,7 +28,7 @@ export default function MyBloodyMarys ({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>My Bloody Marys</Text>
-      {ratings.map((rating) => (
+      {ratings && ratings.map((rating) => (
       <View key={rating._id}>
         {(rating.rating + rating.price + rating.hangover + rating.venue + rating.spice) >= 20
         ? <Text style={styles.icons}>🍹🍹🍹</Text>

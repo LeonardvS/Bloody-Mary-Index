@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, Dimensions, ActivityIndicator } from 'react-native';
 import * as Location from 'expo-location';
-// import MapView from 'react-native-maps';
+import MapView, { Marker, Callout } from 'react-native-maps';
 
-export default function Map () {
+export default function Map(props) {
+  const [markerLocations, setMarkerLocations] = useState([])
+  const { navigation: { state: { params: loc } } } = props;
+
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
@@ -13,11 +16,37 @@ export default function Map () {
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
       }
-
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
     })();
-  });
+  }, []);
+
+  useEffect(() => {
+    setMarkerLocations(loc.loc);
+  }, [])
+
+  function markerRatings(hangover, price, rating, spice, venue) {
+    if ((hangover + price + rating + spice + venue) >= 20) return '🍹🍹🍹';
+    else if ((hangover + price + rating + spice + venue) >= 10) return '🍹🍹';
+    return '🍹';
+  }
+
+  function populateMarkers(markerLocations) {
+    return markerLocations && markerLocations.map((marker) => {
+      const { lat, long, hangover, price, rating, spice, venue, address } = marker;
+      return (<Marker
+        key={marker._id}
+        coordinate={{ latitude: lat, longitude: long }}
+      >
+        <Callout>
+          <Text>{markerRatings(hangover, price, rating, spice, venue)}</Text>
+          <Text>Googleplex</Text>
+          <Text>{address}</Text>
+        </Callout>
+      </Marker>)
+    })
+  }
+
   let text = 'Waiting..';
   if (errorMsg) {
     text = errorMsg;
@@ -26,9 +55,22 @@ export default function Map () {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>{text}</Text>
-    </View>
+    <>
+      {location !== null ? (
+        <MapView
+          style={styles.container}
+          initialRegion={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            longitudeDelta: 0.07,
+            latitudeDelta: 0.08
+          }}
+        >
+          {populateMarkers(markerLocations)}
+        </MapView>
+      ) :
+        <ActivityIndicator style={styles.container} />}
+    </>
   );
 }
 

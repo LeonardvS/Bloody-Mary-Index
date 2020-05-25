@@ -1,17 +1,17 @@
 import React from 'react';
 import { StyleSheet, View, Picker, Text } from 'react-native';
 
-export default function Rating({ value, onChange }) {
+export default function Hangover({ value, onChange }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.category}>OVERALL</Text>
+      <Text style={styles.category}>ADDRESS</Text>
       <Picker selectedValue={value} onValueChange={(value) => onChange(value)}>
-        <Picker.Item label='⭐' value={1} />
-        <Picker.Item label='⭐⭐' value={2} />
-        <Picker.Item label='⭐⭐⭐' value={3} />
-        <Picker.Item label='⭐⭐⭐⭐' value={4} />
-        <Picker.Item label='⭐⭐⭐⭐⭐' value={5} />
+        <Picker.Item label="📍" value="" />
+        <Picker.Item
+          label='Address'
+          value='Googleplex, 1600 Amphitheatre Pkwy, Mountain View'
+        />
       </Picker>
     </View>
   )

@@ -4,7 +4,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import MyBloodyMarys from '../screens/myBloodyMarys';
 import Header from '../shared/header';
 
-
 const screens = {
   MyBloodyMarys: {
     screen: MyBloodyMarys,

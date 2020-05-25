@@ -14,7 +14,8 @@ const BloodyMarySchema = new Schema({ // TODO: implement date: date: {type: Date
   price: Number,
   venue: Number,
   spice: Number,
-  hangover: Number
+  hangover: Number,
+  address: String
 });
 
 module.exports = mongoose.model('BloodyMarys', BloodyMarySchema);

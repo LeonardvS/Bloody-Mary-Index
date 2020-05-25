@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Dimensions, ImageBackground } from 'react-native';
-
+import { getBloodyMarys } from '../services/apiClient';
 import FlatButton from '../shared/button';
 
-export default function Home ( { navigation } ) {
+export default function Home({ navigation }) {
+  const [newLoc, setLoc] = useState([]);
 
   const pressHandlerMaps = () => {
-    navigation.navigate('Maps');
+    navigation.navigate('Maps', {
+      loc: newLoc,
+    });
   }
 
   const pressHandlerForm = () => {
     navigation.navigate('Form');
   }
+
+  useEffect(() => {
+    getBloodyMarys()
+      .then(ratings => setLoc(ratings))
+  }, []);
+
 
   return (
     <View style={styles.container}>
@@ -30,10 +39,13 @@ export default function Home ( { navigation } ) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 5,
+    flex: 1,
+    padding: 3,
   },
   top: {
-    height: Dimensions.get('window').height/2.3,
+    flex: 1,
+    justifyContent: 'flex-end',
+    height: Dimensions.get('window').height / 2.3,
     borderRadius: 8,
     marginBottom: 2
   },
@@ -43,7 +55,9 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   bottom: {
-    height: Dimensions.get('window').height/2.3,
+    flex: 1,
+    justifyContent: 'flex-end',
+    height: Dimensions.get('window').height / 2.3,
     borderRadius: 8
   }
 })

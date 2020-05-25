@@ -20,7 +20,8 @@ async function postBloodyMary (req, res) {
       price: req.body.price,
       venue: req.body.venue,
       spice: req.body.spice,
-      hangover: req.body.hangover
+      hangover: req.body.hangover,
+      address: req.body.address
     });
     res.status(201);
     res.json(newBloodyMary);
