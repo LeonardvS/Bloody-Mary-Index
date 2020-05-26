@@ -6,7 +6,6 @@ import MapView, { Marker, Callout } from 'react-native-maps';
 export default function Map(props) {
   const [markerLocations, setMarkerLocations] = useState([])
   const { navigation: { state: { params: loc } } } = props;
-
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
