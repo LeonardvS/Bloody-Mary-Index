@@ -21,7 +21,8 @@ async function postBloodyMary (req, res) {
       venue: req.body.venue,
       spice: req.body.spice,
       hangover: req.body.hangover,
-      address: req.body.address
+      address: req.body.address,
+      name: req.body.name
     });
     res.status(201);
     res.json(newBloodyMary);

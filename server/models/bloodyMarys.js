@@ -1,7 +1,9 @@
 const mongoose = require('./db');
 const Schema = mongoose.Schema;
 
-const BloodyMarySchema = new Schema({ // TODO: implement date: date: {type: Date, default: Date.now()}
+// TODO: implement date: date: {type: Date, default: Date.now()}
+
+const BloodyMarySchema = new Schema({
   lat: {
     type: Number,
     default: 0
@@ -15,7 +17,8 @@ const BloodyMarySchema = new Schema({ // TODO: implement date: date: {type: Date
   venue: Number,
   spice: Number,
   hangover: Number,
-  address: String
+  address: String,
+  name: String
 });
 
 module.exports = mongoose.model('BloodyMarys', BloodyMarySchema);

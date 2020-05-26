@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, Dimensions, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, Dimensions, ActivityIndicator, Image, View } from 'react-native';
 import * as Location from 'expo-location';
 import MapView, { Marker, Callout } from 'react-native-maps';
 
@@ -25,10 +25,14 @@ export default function Map(props) {
     setMarkerLocations(loc.loc);
   }, [])
 
+  let threeStars = <Image source={require('../assets/3stars.png')} style={styles.img1} />;
+  let twoStars = <Image source={require('../assets/2stars.png')} style={styles.img1} />;
+  let oneStar = <Image source={require('../assets/1star.png')} style={styles.img1} />;
+
   function markerRatings(hangover, price, rating, spice, venue) {
-    if ((hangover + price + rating + spice + venue) >= 20) return '🍹🍹🍹';
-    else if ((hangover + price + rating + spice + venue) >= 10) return '🍹🍹';
-    return '🍹';
+    if ((hangover + price + rating + spice + venue) >= 20) return threeStars;
+    else if ((hangover + price + rating + spice + venue) >= 10) return twoStars;
+    return oneStar;
   }
 
   function populateMarkers(markerLocations) {
@@ -85,6 +89,10 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
+  img1: {
+    width: 50,
+    height: 40,
+  }
 })
 
 

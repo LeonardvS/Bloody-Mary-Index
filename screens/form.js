@@ -10,6 +10,7 @@ import Spice from '../ratingOptions/spiciness';
 import Price from '../ratingOptions/price';
 import Hangover from '../ratingOptions/hangover';
 import Address from '../ratingOptions/address';
+import VenueName from '../ratingOptions/venueName';
 
 export default function Form ({ navigation }) {
   const [venue, setVenue] = useState(1);
@@ -18,6 +19,7 @@ export default function Form ({ navigation }) {
   const [rating, setRating] = useState(1);
   const [hangover, setHangover] = useState(1);
   const [address, setAddress] = useState('📍');
+  const [name, setName] = useState('');
   const [long, setLong] = useState('');
   const [lat, setLat] = useState('');
   const [errorMsg, setErrorMsg] = useState(null);
@@ -35,7 +37,7 @@ export default function Form ({ navigation }) {
     })();
   });
 
-  const bloodyMaryRating = { rating, venue, spice, price, hangover, long, lat, address };
+  const bloodyMaryRating = { rating, venue, spice, price, hangover, long, lat, address, name };
 
   const handlePress = () => {
     postBloodyMary(bloodyMaryRating)
@@ -56,6 +58,7 @@ export default function Form ({ navigation }) {
       <Hangover value={hangover} onChange={setHangover} />
       <Spice value={spice} onChange={setSpice} />
       <Address value={address} onChange={setAddress} />
+      {/* <VenueName value={name} onChange={setName} /> */}
       <FlatButton
         text='submit'
         style={styles.button}
