@@ -1,4 +1,4 @@
-# [Bloody-Mary-Index]
+# Bloody-Mary-Index
 Find the best Bloody Mary in town!
 
 ## Flow
