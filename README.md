@@ -38,5 +38,12 @@ Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, a
 * Mongoose
 * MongoDB
 
+## Observations
+
+    - Add friends functionality to display your buddies Bloody Marys as well.
+    - Add Google places API.
+    - Rethink the UI. Styling can be improved upon.
+    - Implement testing.
+
 ### Developer
 Leonard Schilcher # [LinkedIn](https://www.linkedin.com/in/leonard-schilcher/)
