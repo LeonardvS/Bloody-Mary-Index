@@ -17,7 +17,7 @@ Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, a
 
 ## Run the app
 <details>
-<summary>Instructions for Android only</summary>
+<summary>Instructions for Android</summary>
 
 - **1. Fork and clone the repository.**
 - **2. Run "npm install" from the project directory (root)**
