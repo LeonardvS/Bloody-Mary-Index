@@ -45,4 +45,4 @@ Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, a
 * Implement testing
 
 ### Developer
-Leonard Schilcher # [LinkedIn](https://www.linkedin.com/in/leonard-schilcher/)
+Leonard Schilcher [LinkedIn](https://www.linkedin.com/in/leonard-schilcher/)
