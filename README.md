@@ -7,12 +7,12 @@ Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, a
 ## Screenshots
 <div align='center'>
   <img src="assets/home.png" alt="user login" width="250" height="517">
-  <img src="assets/BmRatingPage.png" alt="user event list" width="250">
+  <img src="assets/BmRatingPage.png" alt="user event list" width="250" height="517">
 </div>
 
 <div align='center'>
-  <img src="assets/BmMap.png" alt="user event confirmed" width="250">
-  <img src="assets/personalBmPage.png" alt="user event confirmed" width="250">
+  <img src="assets/BmMap.png" alt="user event confirmed" width="250" height="517">
+  <img src="assets/personalBmPage.png" alt="user event confirmed" width="250" height="517">
 </div>
 
 ## Run the app
