@@ -1,7 +1,8 @@
 # Bloody-Mary-Index
-Find the best Bloody Mary in town!
 
-## Flow
+Finally, Bloody Mary lovers can find and rate the best <br> Bloody Marys in town at all times!
+
+## Screenshots
 <div align='center'>
   <img src="assets/home.png" alt="user login" width="250" height="517">
   <img src="assets/BmRatingPage.png" alt="user event list" width="250">
