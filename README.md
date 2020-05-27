@@ -17,32 +17,17 @@ Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, a
 
 ## Run the app
 <details>
-<summary>Instructions</summary>
+<summary>Instructions for Android only</summary>
 
-- **1. Get a Client ID and a Client Secret from Spotify**
-
-   First of all we will need a Client ID and a Client Secret from Spotify if we want to be able to use their API.
-   We will need a Spotify account to create an app on their developer's site, but the process is pretty straightforward          and it will not take more than 5 minutes.
-
-   You can follow this tutorial: https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app
-
-- **2. Create a database named 'ratelist' from the postgreSQL shell.**
-- **3. Fork and clone the repository.**
-- **4. Create a .env file in /server providing the information needed.**
-
-    ```txt
-    SPOTIFY_CLIENT_ID = 'copy client id here'
-    SPOTIFY_CLIENT_SECRET = 'copy client secret here'
-    SPOTIFY_REDIRECT_URI = 'http://localhost:3001/callback'
-
-    PSQL_USER = 'user name'
-    PSQL_PASSWORD = 'password'
-
-    PORT = 'port'
-    ```
-- **5. Run "npm install" in /ratelist (root).**
+- **1. Fork and clone the repository.**
+- **2. Run "npm install" from the project folder (root)**
+   You can follow this tutorial if you haven't done this before: https://developers.google.com/maps/documentation/javascript/get-api-key
+   Once you have the key, you can find the app.json file and paste it into the "apiKey" property of the android object.
+- **3. Get an API key for Google maps**
+   You can follow this tutorial if you haven't done this before: https://developers.google.com/maps/documentation/javascript/get-api-key
+   Once you have the key, you can find the app.json file and paste it into the "apiKey" property of the android object.
 - **6. Run "nodemon" in /server.**
-- **7. Run "npm start" in /ratelist (root).**
+- **7. Run "npm start" in project folder (root).**
 </details>
 
 ## Tech-stack
