@@ -20,15 +20,14 @@ Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, a
 <summary>Instructions for Android only</summary>
 
 - **1. Fork and clone the repository.**
-- **2. Run "npm install" from the project folder (root)**<br>
+- **2. Run "npm install" from the project folder (root)**
+- **3. Run "exnstall" from the project folder (root)**
+- **4. Get an API key for Google maps**<br>
    You can follow this tutorial if you haven't done this before: https://developers.google.com/maps/documentation/javascript/get-api-key
    Once you have the key, you can find the app.json file and paste it into the "apiKey" property of the android object.
-- **3. Get an API key for Google maps**<br>
-   You can follow this tutorial if you haven't done this before: https://developers.google.com/maps/documentation/javascript/get-api-key
-   Once you have the key, you can find the app.json file and paste it into the "apiKey" property of the android object.
-- **4. Install Android Studio so you can run the app on a virtual device.**
-- **5. Run "nodemon" in /server.**
-- **6. Run "npm start" in project folder (root).**
+- **5. Install Android Studio so you can run the app on a virtual device.**
+- **6. Run "nodemon" in /server.**
+- **7. Run "npm start" in project folder (root).**
 </details>
 
 ## Tech-stack
