@@ -2,7 +2,7 @@
 
 Finally, Bloody Mary lovers can find and rate the best Bloody Marys in town at all times!
 
-Wikipedia: A Bloody Mary is a cocktail containing vodka, tomato juice, and other spices and flavorings including Worcestershire sauce, hot sauces, garlic, herbs, horseradish, celery, olives, salt, black pepper, lemon juice, lime juice or celery salt. In the United States, it is usually consumed in the morning or early afternoon, and is popular as a hangover cure.
+Wikipedia: A Bloody Mary is a **cocktail** containing vodka, **tomato juice**, and other spices and flavorings including Worcestershire sauce, **hot sauces**, garlic, herbs, horseradish, celery, olives, salt, black pepper, lemon juice, lime juice or celery salt. In the United States, it is usually consumed in the **morning or early afternoon**, and is popular as a **hangover cure**.
 
 ## Screenshots
 <div align='center'>
